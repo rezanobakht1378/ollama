@@ -1,0 +1,20 @@
+services:
+  ollama:
+    build:
+      context: ./ollama
+      dockerfile: Dockerfile
+    ports:
+      - 11434:11434
+    volumes:
+      - chatbot-vol:/ollama
+    networks:
+      - NPC
+    entrypoint: [ "/usr/bin/bash", "pull_models.sh" ]
+
+networks:
+  NPC:
+    driver: bridge
+
+volumes:
+  chatbot-vol:
+    driver: local
