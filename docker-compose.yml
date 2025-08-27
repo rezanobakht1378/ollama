@@ -11,7 +11,16 @@ services:
     networks:
       - NPC
     entrypoint: [ "/usr/bin/bash", "pull_models.sh" ]
-
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # for non-swarm mode, add this instead of deploy:
+    runtime: nvidia
+    
 networks:
   NPC:
     driver: bridge
