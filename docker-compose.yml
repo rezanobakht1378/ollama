@@ -7,7 +7,8 @@ services:
     ports:
       - 11434:11434
     volumes:
-      - chatbot-vol:/ollama
+      #- chatbot-vol:/ollama
+      - ./ollama_data:/root/.ollama
     networks:
       - NPC
     entrypoint: [ "/usr/bin/bash", "pull_models.sh" ]
@@ -26,5 +27,6 @@ networks:
     driver: bridge
 
 volumes:
-  chatbot-vol:
-    driver: local
+  - chatbot-vol:/ollama
+  #chatbot-vol:
+    #driver: local
