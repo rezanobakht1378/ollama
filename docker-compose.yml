@@ -26,7 +26,6 @@ networks:
   NPC:
     driver: bridge
 
-volumes:
-  - chatbot-vol:/ollama
+#volumes:
   #chatbot-vol:
     #driver: local
