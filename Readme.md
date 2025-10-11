@@ -15,3 +15,17 @@ services:
               capabilities: [gpu]
     # for non-swarm mode, add this instead of deploy:
     runtime: nvidia
+
+Unknown or Invalid Runtime Name: Nvidia    برای حل خطا 
+    /etc/docker/daemon.json
+    را ویرایش میکنیم و 
+    
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+به آن اضافه میکنیم
